@@ -1,0 +1,39 @@
+---
+const { headline } = Astro.props;
+---
+
+<div class='section-descriptor'>
+  <div class='circle'></div>
+  <p>{headline}</p>
+</div>
+
+<style>
+  .section-descriptor {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--space-200);
+    margin-bottom: var(--space-400);
+  }
+
+  .circle {
+    width: 12px;
+    height: 12px;
+    background-color: var(--primary-800);
+    border-radius: 50%;
+  }
+
+  .section-descriptor p {
+    margin: 0;
+    font-size: var(--fs-200);
+    color: var(--text-primary-700);
+    text-transform: uppercase;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .section-descriptor {
+      margin-bottom: var(--space-600);
+    }
+  }
+</style>

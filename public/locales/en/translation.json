@@ -1,3 +1,57 @@
 {
-  "test": "This is test text heading"
+  "nav": {
+    "home": "Home",
+    "rent": "Van Rental",
+    "transport": "Van Transport",
+    "credits": "Designed by"
+  },
+  "cta": "Email Us",
+  "index": {
+    "hero": {
+      "heading": "Van Rental & Transport",
+      "subheading": "Across the Alps and into all of Europe - Doxit takes you there. With us, using van services or renting a reliable van in Zürich, has never been easier. Our modern vans are built for every route - whether you’re moving, delivering, or transporting goods we’ve got you covered.",
+      "heroImgAlt": "A yellow van driving on a road with mountains in the background"
+    },
+    "services": {
+      "title": "Reliable Van Rental and Transport Across Switzerland and Europe",
+      "serviceOne": {
+        "alt": "A yellow Mercedes Sprinter van parked on a street",
+        "heading": "Reliable Van Rental in Zürich",
+        "paragraph": "Choose from our fleet of well-maintained Mercedes Sprinter vans, perfect for moving, deliveries, or business needs. Enjoy flexible rental options, transparent pricing, and easy pick-up in Brüttisellen - no hidden costs, just a smooth ride."
+      },
+      "serviceTwo": {
+        "alt": "A yellow van loaded with cargo",
+        "heading": "Fast and Secure Transport ",
+        "paragraph": "From local moves to international deliveries, our team ensures your goods reach any destination safely and on time. Whether it’s furniture, business equipment, or commercial cargo, we provide reliable transport across Switzerland and throughout Europe."
+      }
+    },
+    "sectionMain": {
+      "imgsData": {
+        "imgOne": {
+          "alt": "Two yellow vans parked inside a garage"
+        }
+      },
+      "headline": "about us",
+      "title": "Doxit - Your trusted moving and transport company",
+      "description": "Based in Birkenweg 17, 8306 Brüttisellen (Zürich), Doxit GmbH stands among dependable moving companies offering van rental, furniture transports, and cargo transport across Switzerland and Europe. Whether you need a van for rent in Zürich for small moves or professional removals handled by an experienced transport company Switzerland, we make every move Switzerland simple and stress-free. Our moving van and transporters Switzerland are ideal for private and business clients who need to rent delivery van for local or international transport.",
+      "featuresList": {
+        "featureOne": {
+          "title": "Moving vans",
+          "description": "Modern and clean moving van fleet for every type of removals"
+        },
+        "featureTwo": {
+          "title": "Affordable Options",
+          "description": "Affordable van for rent Zürich options for individuals and companies"
+        },
+        "featureThree": {
+          "title": "Safety first",
+          "description": "Secure furniture transports and cargo transport across Switzerland and Europe"
+        },
+        "featureFour": {
+          "title": "Firm you can count on",
+          "description": "Trusted transport company Switzerland with flexible service and transparent pricing"
+        }
+      }
+    }
+  }
 }

@@ -1,18 +1,227 @@
 ---
+import i18next, { t } from 'i18next';
+import doxit from '../../assets/doxit.webp';
+import CTA1 from '../cta/CTA1.astro';
+import { Image } from 'astro:assets';
+import AnimateOnScroll from '../../animations/AnimateOnScroll.astro';
 
+interface Props {
+  heroImg: ImageMetadata;
+  alt: string;
+  rentImg?: boolean;
+  heading: string;
+  subheading: string;
+}
+
+const { heroImg, alt, rentImg, heading, subheading } = Astro.props;
+
+const rent = rentImg ? 'rent' : '';
 ---
-<section class="hero">
-  <div class="container">
-    <h1>Hero h1</h1>
+
+<div class='hero'>
+  <div class='images-container'>
+    <Image src={doxit} alt='' class='doxit-img' priority />
+    <div class=`hero-img-wrapper ${rent}`>
+      <Image src={heroImg} alt={alt} class='hero-img' priority />
+    </div>
   </div>
-</section>
+  <div class=`content ${rent}`>
+    <AnimateOnScroll animation='down-slide' duration={1} delay={0.5}>
+      <h1>{heading}</h1>
+    </AnimateOnScroll>
+    <AnimateOnScroll animation='slide-from-left' duration={1} delay={0.7}>
+      <p>{subheading}</p>
+    </AnimateOnScroll>
+    <AnimateOnScroll animation='up-slide' duration={1} delay={0.9}>
+      <CTA1 />
+    </AnimateOnScroll>
+  </div>
+</div>
 
 <style>
-	.hero {
+  .hero {
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    align-items: flex-start;
+    gap: var(--section-spacing-xl);
+    padding: 70px 200px 200px 0;
+  }
+
+  .images-container {
+    position: relative;
+    max-width: 900px;
+    max-height: 800px;
+    height: auto;
+    overflow: visible;
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+  }
+
+  .hero-img-wrapper {
+    position: relative;
+    z-index: 10;
+  }
+
+  .hero-img-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at left,
+      rgba(116, 116, 116, 0.4) 0%,
+      rgba(48, 48, 48, 0.3) 10%,
+      rgba(255, 255, 255, 0.1) 70%,
+      transparent 40%
+    );
+    z-index: -10;
+    pointer-events: none;
+  }
+  .hero-img-wrapper.rent::before {
+    content: '';
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200%;
+    height: 100%;
+    background: radial-gradient(
+      ellipse at left,
+      rgba(116, 116, 116, 0.4) 0%,
+      rgba(48, 48, 48, 0.3) 10%,
+      rgba(255, 255, 255, 0.1) 70%,
+      transparent 40%
+    );
+    z-index: -10;
+    pointer-events: none;
+  }
+
+  .hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+    z-index: 1;
+  }
+
+  .doxit-img {
+    position: absolute;
+    width: 73%;
+    height: auto;
+    z-index: 1;
+    transform: translateY(160px);
+    opacity: 0;
+    animation: fadeInUp 1s cubic-bezier(0.26, 0.51, 0.58, 1) forwards;
+  }
+
+  .content {
+    max-width: 25vw;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .content p {
+    font-size: var(--fs-400);
+    margin-top: 24px;
+    margin-bottom: 48px;
+    line-height: 1.4;
+  }
+
+  @keyframes fadeInUp {
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 1250px) {
+    .hero {
+      padding: 70px 100px 150px 0;
+      gap: var(--section-spacing-lg);
+    }
+
+    h1 {
+      font-size: var(--fs-600);
+    }
+
+    .content {
+      max-width: 35vw;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      padding: 40px 0 100px 0;
+      gap: var(--section-spacing-sm);
+    }
+
+    .hero-img-wrapper::before {
+      content: '';
+      position: absolute;
+      top: 90%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 50%;
+      background: radial-gradient(
+        ellipse at left,
+        rgba(48, 48, 48, 0.2) 10%,
+        rgba(157, 157, 157, 0.2) 50%,
+        transparent 70%
+      );
+      z-index: -5;
+      pointer-events: none;
+    }
+    .hero-img-wrapper.rent::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 110%;
+      height: 50%;
+      background: radial-gradient(
+        ellipse at left,
+        rgba(48, 48, 48, 0.2) 10%,
+        rgba(157, 157, 157, 0.2) 50%,
+        transparent 70%
+      );
+      z-index: -5;
+      pointer-events: none;
+    }
+
+    .images-container {
+      max-width: 95vw;
+      height: auto;
+    }
+
+    .doxit-img {
+      width: 75%;
+      transform: translateY(100px);
+    }
+
+    .content {
+      max-width: 100%;
+      padding: 0 1rem;
+      z-index: 5;
+    }
+
+    .content.rent {
+      margin-top: -9em;
+      margin-left: 27px;
+      align-items: flex-end;
+      text-align: end;
+    }
+
+    .content p {
+      font-size: var(--fs-200);
+      margin-top: 16px;
+      margin-bottom: 32px;
+    }
   }
 </style>

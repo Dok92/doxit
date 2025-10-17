@@ -1,0 +1,147 @@
+---
+// TODO Once the component is finished, rename how-rent-two to mat
+---
+
+<div class='mat-row'>
+  <div class='mat 1'>
+    <div class='how-rent-two__item'>
+      <div class='how-rent-two__item__top'>
+        <div class='how-rent-two__item__icon'>
+          <img src='/img/icons/van.svg' alt='icon' />
+        </div>
+      </div>
+      <h4 class='how-rent-two__item__title'>RESERVE YOUR car</h4>
+      <p class='how-rent-two__item__text'>Lorem ipsum dolor sit amet consectetur adipisicing</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  .how-rent-two__item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -2;
+    height: 100%;
+    background-image: url(../images/shapes/shape-how-2.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    transition: all 0.4s ease-in-out;
+    transform: translateY(11px);
+  }
+  .how-rent-two__item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    height: 100%;
+    background-image: url(../images/shapes/shape-how.png);
+    background-repeat: no-repeat;
+    background-position: left top;
+    transform: translateY(0px);
+    transition: all 0.4s ease-in-out;
+  }
+  .how-rent-two__item__top {
+    position: relative;
+    z-index: 1;
+    counter-increment: mainRent;
+  }
+  .how-rent-two__item__top::before {
+    content: counters(mainRent, '.', decimal-leading-zero);
+    color: var(--rentol-black, #212121);
+    font-style: normal;
+    font-weight: 800;
+    font-size: 24px;
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    line-height: 100%;
+    transition: all 0.4s ease-in-out;
+  }
+  .how-rent-two__item__icon {
+    font-size: 50px;
+    color: var(--rentol-base, #f2af1e);
+    margin-bottom: 50px;
+    line-height: 1;
+    transition: all 0.4s ease-in-out;
+  }
+  .how-rent-two__item__title {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 150%;
+    margin-bottom: 3px;
+    padding-bottom: 0;
+    text-transform: uppercase;
+    color: var(--rentol-white, #fff);
+    transition: all 0.4s ease-in-out;
+  }
+  .how-rent-two__item__text {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 188%;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    color: var(--rentol-text, #7e7e7e);
+    transition: all 0.4s ease-in-out;
+  }
+  .how-rent-two__item:hover .how-rent-two__item__top::before {
+    color: var(--rentol-base, #f2af1e);
+  }
+  .how-rent-two__item:hover .how-rent-two__item__icon {
+    color: var(--rentol-black, #212121);
+  }
+  .how-rent-two__item:hover .how-rent-two__item__text {
+    color: var(--rentol-black, #212121);
+  }
+  .how-rent-two__item:hover .how-rent-two__item__title {
+    color: var(--rentol-black, #212121);
+  }
+  .how-rent-two__item:hover::after {
+    z-index: -2;
+    transform: translateY(11px);
+  }
+  .how-rent-two__item:hover::before {
+    z-index: -1;
+    transform: translateY(0px);
+  }
+  .how-rent-two__element-one {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: none;
+    z-index: -1;
+    transform: translateY(-50%);
+  }
+  .how-rent-two__element-one img {
+    animation: movebounce2 3s ease-in-out infinite;
+  }
+  .how-rent-two__element-one::after {
+    content: '';
+    position: absolute;
+    width: 316px;
+    height: 246px;
+    left: 49px;
+    top: 0;
+    z-index: -2;
+    background: rgba(242, 175, 30, 0.5);
+    filter: blur(100px);
+  }
+  @keyframes movebounce2 {
+    0% {
+      transform: translateX(0px);
+    }
+    50% {
+      transform: translateX(-15px);
+    }
+    100% {
+      transform: translateX(0px);
+    }
+  }
+</style>
